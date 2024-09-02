@@ -20,7 +20,7 @@ plugins {
 
 
 group = 'org.mikeb'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 
 java {
 	toolchain {
@@ -50,15 +50,10 @@ def updVer = tasks.register('updateVersion') {
 		def contents = configFile.text
 		def ys = new YamlSlurper()
 		def yml = ys.parseText(contents)
-		println '******* current config:'
-		println yml
 		yml.service.version = project.version
 
 		def yb = new YamlBuilder()
 		yb yml
-
-		println '******* updated:'
-		println yb.toString()
 		configFile.text = yb.toString()
 	}
 }
