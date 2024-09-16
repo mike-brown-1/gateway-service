@@ -15,7 +15,7 @@ public class ServiceController {
         this.serviceConfig = serviceConfig;
     }
 
-    @GetMapping("/foo")
+    @GetMapping("/gservice/foo")
     public ResponseEntity<ServiceResponse> getSomething() {
         ServiceResponse serviceResponse = new ServiceResponse(serviceConfig.getServiceName(), serviceConfig.getPort(),
                 serviceConfig.getVersion(), String.format("%s called at: %s", serviceConfig.getServiceName(),
